@@ -1,5 +1,5 @@
 <template>
   <main>
-    <h1>Hello </h1>
+    <h1>This is a dashboard page</h1>
   </main>
 </template>

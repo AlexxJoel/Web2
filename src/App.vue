@@ -30,25 +30,34 @@
         <div class="bg-dark text-white p-0 m-0" style="height: 95vh ;">
           <nav class="d-none d-md-block">
             <div class="p-3">
-              <h4 id="sidebar-no-header-title">Custom header sidebar</h4>
+              <h4 id="sidebar-no-header-title">Navegación</h4>
               <nav class="mb-3">
                 <div>
                   <b-nav vertical class="w-25">
-                    <b-nav-item active>
-                      <b-link :to="{ name: 'home' }">Inicio</b-link>
+                    <b-nav-item >
+                      <b-link :to="{ name: 'home' }" :active-class="'active'">Home</b-link>
+                    </b-nav-item>
+
+                    <b-nav-item>
+                      <b-link :to="{ name: 'dashboard' }" :active-class="'active'">Dashboard</b-link>
+                    </b-nav-item>
+
+                    <b-nav-item>
+                      <b-link :to="{ name: 'about' }" :active-class="'active'">about</b-link>
                     </b-nav-item>
 
                   </b-nav>
                 </div>
               </nav>
-              <b-button variant="primary" block>Close Sidebar</b-button>
             </div>
           </nav>
         </div>
       </b-col>
 
       <b-col>
-        <router-view></router-view>
+        <div class="mt-2">
+          <router-view></router-view>
+        </div>
       </b-col>
     </b-row>
   </div>

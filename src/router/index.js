@@ -35,6 +35,37 @@ const routes = [
         name: "about",
         component: () => import("@/views/AboutView.vue"),
       },
+      {
+        path: "/rent-u-space",
+        name: "rentUspace",
+        component: () => import("@/views/RentUSpace/HomeView.vue"),
+      },
+      {
+        path: "/rent-u-space/information",
+        name: "rentUspaceInformation",
+        component: () => import("@/views/RentUSpace/InformationView.vue"),
+      },
+      {
+        path: "/rent-u-space/promotion",
+        name: "rentUspacePromotion",
+        component: () => import("@/views/RentUSpace/PromotionSpace.vue"),  
+      },
+
+      {
+        path: "/rent-space",
+        name: "rentSpace",
+        component: () => import("@/views/RentSpace/HomeView.vue"),
+      },
+      {
+        path: "/rent-space/catalogue",
+        name: "rentSpaceCatalogue",
+        component: () => import("@/views/RentSpace/CatalogueNameView.vue"),
+      },
+      {
+        path: "/rent-space/details",
+        name: "rentSpaceDetails",
+        component: () => import("@/views/RentSpace/DetailsView.vue"),
+      },
     ],
   },
 ];
