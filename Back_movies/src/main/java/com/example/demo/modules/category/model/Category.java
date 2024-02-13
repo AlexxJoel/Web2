@@ -3,11 +3,13 @@ package com.example.demo.modules.category.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import com.example.demo.modules.movie.model.Movie;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.List;
 
@@ -34,11 +36,11 @@ public class Category {
     private String image;
 
 
-    @Column(columnDefinition = "BOOLEAN DEFAULT true", nullable = false)
-    private boolean status;
+    @Column(columnDefinition = "BOOLEAN", nullable = false)
+    private boolean status = true;
 
-    @JsonIgnoreProperties({"category"})
     @OneToMany(mappedBy = "category")
+    @JsonIgnoreProperties("category")
     private List<Movie> movies;
 
 

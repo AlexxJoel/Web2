@@ -1,6 +1,7 @@
 package com.example.demo.modules.movie.model;
 
 import com.example.demo.modules.category.model.Category;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,10 +26,11 @@ public class Movie {
     @Column(columnDefinition = "TEXT", nullable = true)
     private String description;
 
-    @Column(columnDefinition = "TEXT", nullable = true)
-    private String image;
+    @Column(columnDefinition = "BOOLEAN", nullable = false)
+    private Boolean status = true;
 
     @ManyToOne
+    @JsonIgnoreProperties("movies")
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 

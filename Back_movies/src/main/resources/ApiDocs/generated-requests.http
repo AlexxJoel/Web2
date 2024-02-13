@@ -1,7 +1,7 @@
 ### page
 GET http://localhost:8080/api/category/
 
-### save
+### save category
 POST http://localhost:8080/api/category/
 content-type: application/json
 
@@ -10,8 +10,19 @@ content-type: application/json
   "description" : "Hola"
 }
 
-<> 2024-02-09T010330.200.json
-
 
 ### page
 GET http://localhost:8080/api/movie/
+
+### save
+POST http://localhost:8080/api/movie/
+Content-Type: application/json
+
+{
+  "title": "aaaaaaaaa",
+  "description": "",
+  "category": {
+    "id": 1
+  }
+}
+
