@@ -1,5 +1,5 @@
-### page
-GET http://localhost:8080/api/category/
+### getAll
+GET http://localhost:8080/api/category/?sort=id&direction=asc&page=2&size=1
 
 ### save category
 POST http://localhost:8080/api/category/
@@ -11,18 +11,37 @@ content-type: application/json
 }
 
 
-### page
-GET http://localhost:8080/api/movie/
+
+### pageable
+GET http://localhost:8080/api/movie/?sort=id&direction=asc&page=2&size=1
+
 
 ### save
 POST http://localhost:8080/api/movie/
 Content-Type: application/json
 
 {
-  "title": "aaaaaaaaa",
+  "title": "{{ $random.alphanumeric(10) }}",
   "description": "",
   "category": {
     "id": 1
   }
 }
+
+### uodate
+PUT http://localhost:8080/api/movie/update/
+Content-Type: application/json
+
+{
+   "id": 1,
+  "title": "{{ $random.alphanumeric(10) }}",
+  "description": "",
+  "category": {
+    "id": 2
+  }
+}
+
+### disable
+PATCH http://localhost:8080/api/movie/change-status/1
+
 

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -27,5 +28,22 @@ public class MovieService {
     @Transactional(rollbackFor = { SQLException.class, Exception.class})
     public Movie save(Movie movie){
         return this.ImovieRepository.saveAndFlush(movie);
+    }
+
+    @Transactional(rollbackFor = { SQLException.class, Exception.class})
+    public Movie update(Movie movie){
+        return this.ImovieRepository.saveAndFlush(movie);
+    }
+
+    @Transactional(rollbackFor = { SQLException.class, Exception.class})
+    public Movie changeStatus(Long id){
+        Movie movie = this.ImovieRepository.findById(id).get();
+        movie.setStatus(!movie.getStatus());
+        return this.ImovieRepository.saveAndFlush(movie);
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Movie> findById(Long id){
+        return this.ImovieRepository.findById(id);
     }
 }
