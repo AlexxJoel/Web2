@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "movies")
 @AllArgsConstructor
@@ -25,6 +27,12 @@ public class Movie {
 
     @Column(columnDefinition = "TEXT", nullable = true)
     private String description;
+
+    @Column(columnDefinition = "VARCHAR(60)", nullable = false)
+    private String director;
+
+    @Column(columnDefinition = "TIMESTAMP DEFAULT now()", nullable = true)
+    private LocalDate atPublish;
 
     @Column(columnDefinition = "BOOLEAN", nullable = false)
     private Boolean status = true;

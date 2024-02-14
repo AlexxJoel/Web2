@@ -16,13 +16,23 @@ content-type: application/json
 GET http://localhost:8080/api/movie/?sort=id&direction=asc&page=2&size=1
 
 
+### findByName
+POST http://localhost:8080/api/movie/findByTitle
+Content-Type: application/json
+
+{
+  "title": "a"
+}
+
+
 ### save
 POST http://localhost:8080/api/movie/
 Content-Type: application/json
 
 {
-  "title": "{{ $random.alphanumeric(10) }}",
+  "title": "test 2",
   "description": "",
+  "director": "{{ $random.alphanumeric(10) }}",
   "category": {
     "id": 1
   }

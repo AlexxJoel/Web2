@@ -1,12 +1,14 @@
 package com.example.demo.modules.movie.controller;
 
 import com.example.demo.modules.movie.model.Movie;
+import com.example.demo.modules.movie.model.dto.MovieDto;
 import com.example.demo.modules.movie.service.MovieService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,6 +22,11 @@ public class MovieController {
     @GetMapping("/")
     public Page<Movie> getAll(Pageable pageable) {
         return this.movieService.findAll(pageable);
+    }
+
+    @PostMapping("/findByTitle")
+    public Page<Movie>  getByTitle(@Validated({MovieDto.getByTitle.class}) @RequestBody MovieDto movie, Pageable pageable) {
+        return this.movieService.findByTitle(pageable, movie);
     }
 
     @PostMapping("/")
