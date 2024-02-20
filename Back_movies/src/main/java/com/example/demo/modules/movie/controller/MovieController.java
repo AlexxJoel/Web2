@@ -26,9 +26,25 @@ public class MovieController {
 
     @PostMapping("/findByTitle")
     public Page<Movie>  getByTitle(@Validated({MovieDto.getByTitle.class}) @RequestBody MovieDto movie, Pageable pageable) {
-        return this.movieService.findByTitle(pageable, movie);
+        return this.movieService.findAllByTitle(pageable, movie);
     }
 
+    @PostMapping("/findByDirectorName")
+    public Page<Movie> getByDirectorName(@Validated({MovieDto.getByDirectorName.class}) @RequestBody MovieDto movieDto, Pageable pageable){
+        return this.movieService.findAllByDirectorName(pageable, movieDto);
+    }
+    @PostMapping("findBetweenDates")
+    public Page<Movie> getByDateBetween(@Validated({MovieDto.getByDates.class}) @RequestBody MovieDto movieDto, Pageable pageable){
+        return this.movieService.findAllByDateBetween(pageable, movieDto);
+    }
+    @PostMapping("findByCategory")
+    public Page<Movie> getByCategory(@Validated({MovieDto.getByCategory.class}) @RequestBody MovieDto movieDto, Pageable pageable){
+        return this.movieService.findAllByCategory(pageable, movieDto);
+    }
+    @PostMapping("findByDate")
+    public Page<Movie> getByDate(@Validated({MovieDto.getByDate.class}) @RequestBody MovieDto movieDto, Pageable pageable){
+        return this.movieService.findAllByDate(pageable, movieDto);
+    }
     @PostMapping("/")
     public Movie save(@RequestBody Movie movie) {
         return this.movieService.save(movie);
